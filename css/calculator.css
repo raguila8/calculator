@@ -1,0 +1,143 @@
+.screen {
+  height: calc(100vh - 30rem);
+}
+
+.btn-swoosh {
+  position: relative;
+  overflow: hidden; }
+  .btn-swoosh:after {
+    display: none;
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    right: -60%;
+    bottom: -50%;
+    left: -60%;
+    background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0)) 80%;
+    transform: rotate(70deg) translate(0, 10em); }
+  .btn-swoosh:active:after {
+    display: block;
+    animation: swoosh 0.2s ease-out; }
+  .btn-swoosh--loop:after {
+    display: block;
+    animation: 2s swoosh infinite; }
+
+@keyframes swoosh {
+  from {
+    transform: rotate(70deg) translate(0, 10em); }
+  to {
+    transform: rotate(70deg) translate(0, -9em); } }
+
+/*# sourceMappingURL=calculator.css.map */
+
+.order-13 {
+  order: 13
+}
+
+.order-14 {
+  order: 14;
+}
+
+.order-15 {
+  order: 15;
+}
+
+.order-16 {
+  order: 16;
+}
+
+.order-17 {
+  order: 17;
+}
+
+.order-18 {
+  order: 18;
+}
+
+.order-19 {
+  order: 19;
+}
+
+.order-20 {
+  order: 20;
+}
+
+.order-21 {
+  order: 21;
+}
+
+.order-22 {
+  order: 22;
+}
+
+.order-23 {
+  order: 23;
+}
+
+.order-24 {
+  order: 24;
+}
+
+.order-25 {
+  order: 25;
+}
+
+/* Small */
+@media (min-width: 640px) {
+  .screen {
+    height: calc(100vh - 40rem);
+  }
+
+  .sm\:order-13 {
+    order: 13
+  }
+
+  .sm\:order-14 {
+    order: 14;
+  }
+
+  .sm\:order-15 {
+    order: 15;
+  }
+
+  .sm\:order-16 {
+    order: 16;
+  }
+
+  .sm\:order-17 {
+    order: 17;
+  }
+
+  .sm\:order-18 {
+    order: 18;
+  }
+
+  .sm\:order-19 {
+    order: 19;
+  }
+
+  .sm\:order-20 {
+    order: 20;
+  }
+
+  .sm\:order-21 {
+    order: 21;
+  }
+
+  .sm\:order-22 {
+    order: 22;
+  }
+
+  .sm\:order-23 {
+    order: 23;
+  }
+
+  .sm\:order-24 {
+    order: 24;
+  }
+
+  .sm\:order-25 {
+    order: 25;
+  }
+}
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/calculator.css"/>
+    <script src="js/calculator.js"></script>
+  </head>
+
+  <body class='bg-gray-300'>
+    <div class='flex'>
+      <div class='screen xl:w-4/5 sm:w-3/5 w-full sm:py-8 py-2 px-8 flex md:items-center sm:items-end items-center justify-end font-bold text-3xl sm:text-6xl'>
+        0
+      </div>
+      <div class='xl:w-1/5 sm:w-2/5 sm:flex hidden flex-col'>
+        <p class='text-gray-700 text-3xl font-semibold pt-8 pb-5 px-8 w-full'>History</p>
+	<div class='history-itens'>
+          <p class='text-lg w-full px-8'>There's no history yet</p>
+	</div>
+      </div>
+    </div>
+    <div class='fixed bottom-0 left-0 right-0 font-bold text-xl'>
+      <div class='flex flex-wrap xl:w-4/5 sm:w-3/5'> 
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-first">%</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-5 sm:order-1">CE</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-6 sm:order-2">C</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-7 sm:order-3"><img src="images/backspace.svg" class='w-5 h-5'></div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-8 hover:bg-red-500 sm:order-4">/</div>
+      
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-1 sm:order-5">&#8730;</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-9 sm:order-6">7</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-10 sm:order-7">8</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-11 sm:order-8">9</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-12 sm:order-9">x</div>
+      
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-2 sm:order-10"><img src="images/squared.svg" class='w-5 h-5'></div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-13 sm:order-11">4</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-14 sm:order-12">5</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-15 sm:order-13">6</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-16 sm:order-14">-</div>
+      
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center sm:flex hidden items-center order-3 sm:order-15"><img src="images/cubed.png" class='w-6 h-6'></div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-17 sm:order-16">1</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-18 sm:order-17">2</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-19 sm:order-18">3</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-20 sm:order-19">+</div>
+      
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-4 sm:order-20">1/x</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-21">&#xb1;</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-22">0</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-23">.</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-last">=</div>
+      </div>
+    </div>
+  </body>
+</html>

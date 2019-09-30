@@ -1,0 +1,40 @@
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+// Variables
+$bg-color: #57BA5D;
+$text-color: #FFF;
+
+.btn-swoosh {
+  position: relative;
+  overflow: hidden;
+  &:after {
+    display: none;
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    right: -60%;
+    bottom: -50%;
+    left: -60%;
+    background: linear-gradient(rgba(255,255,255,0) 20%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0)) 80%;
+    transform: rotate(70deg) translate(0, 10em);
+  }
+  &:hover:after {
+    display: block;
+    animation: swoosh 0.75s ease-out;
+  }
+  &--loop:after {
+    display: block;
+    animation:  2s swoosh infinite;
+  }
+}
+
+
+@keyframes swoosh {
+  from { transform: rotate(70deg) translate(0, 10em); }
+  to { transform: rotate(70deg) translate(0, -9em); }
+}
