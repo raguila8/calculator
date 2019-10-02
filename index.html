@@ -6,53 +6,140 @@
 
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/calculator.css"/>
-    <script src="js/calculator.js"></script>
   </head>
 
   <body class='bg-gray-300'>
+    <div class='fixed bottom-0 right-0 bg-white z-50 text-center w-10 h-10 cursor-pointer flex items-center justify-center text-black hover:bg-red-500 mr-4 mb-4 hidden' id='clear-history'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"></path></svg>
+    </div>
     <div class='flex'>
-      <div class='screen xl:w-4/5 sm:w-3/5 w-full sm:py-8 py-2 px-8 flex md:items-center sm:items-end items-center justify-end font-bold text-3xl sm:text-6xl'>
-        0
+      <div class='screen xl:w-4/5 sm:w-3/5 w-full sm:py-8 py-2 px-8 flex sm:items-end items-end justify-center font-bold text-3xl sm:text-6xl flex-col'>
+        <p class='text-lg text-gray-600 font-semibold' id="full-expression"></p>
+        <span id="input">0</span>
       </div>
       <div class='xl:w-1/5 sm:w-2/5 sm:flex hidden flex-col'>
-        <p class='text-gray-700 text-3xl font-semibold pt-8 pb-5 px-8 w-full'>History</p>
-	<div class='history-itens'>
-          <p class='text-lg w-full px-8'>There's no history yet</p>
+        <p class='text-black text-xl font-bold pt-8 pb-5 px-8 w-full'>History</p>
+	<div class='flex flex-col overflow-y-auto' id='history-items' style="height: calc(100vh - 97px);">
+          <p class='text-sm w-full px-8 font-semibold text-black'>There's no history yet</p>
+          <!--
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              5 x 10 + 1
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              51
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              12 x 10 + 5
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              125
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              5 x 10 + 1
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              51
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              12 x 10 + 5
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              125
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              5 x 10 + 1
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              51
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              12 x 10 + 5
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              125
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              5 x 10 + 1
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              51
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              12 x 10 + 5
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              125
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              5 x 10 + 1
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              51
+            </div>
+          </div>
+          <div class='history-item flex flex-col p-4 mb-4 hover:bg-gray-400'>
+            <div class='expression flex text-sm text-gray-600 justify-end'>
+              12 x 10 + 5
+            </div>
+            <div class='evaluation flex text-black text-xl font-bold justify-end'>
+              125
+            </div>
+          </div>
+          -->
 	</div>
       </div>
     </div>
     <div class='fixed bottom-0 left-0 right-0 font-bold text-xl'>
       <div class='flex flex-wrap xl:w-4/5 sm:w-3/5'> 
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-first">%</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-5 sm:order-1">CE</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-6 sm:order-2">C</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-7 sm:order-3"><img src="images/backspace.svg" class='w-5 h-5'></div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-8 hover:bg-red-500 sm:order-4">/</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-first" data-operation="percentage">%</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-5 sm:order-1" id='clear-entry'>CE</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-6 sm:order-2" id='clear'>C</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-7 sm:order-3" id="backspace"><img src="images/backspace.svg" class='w-5 h-5'></div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-8 hover:bg-red-500 sm:order-4" data-operation="division">/</div>
       
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-1 sm:order-5">&#8730;</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-1 sm:order-5" data-operation="square-root">&#8730;</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-9 sm:order-6">7</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-10 sm:order-7">8</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-11 sm:order-8">9</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-12 sm:order-9">x</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-12 sm:order-9" data-operation="multiplication">x</div>
       
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-2 sm:order-10"><img src="images/squared.svg" class='w-5 h-5'></div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-2 sm:order-10" data-operation="square"><img src="images/squared.svg" class='w-5 h-5'></div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-13 sm:order-11">4</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-14 sm:order-12">5</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-15 sm:order-13">6</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-16 sm:order-14">-</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-16 sm:order-14" data-operation="subtraction">-</div>
       
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center sm:flex hidden items-center order-3 sm:order-15"><img src="images/cubed.png" class='w-6 h-6'></div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center sm:flex hidden items-center order-3 sm:order-15" data-operation="cube"><img src="images/cubed.png" class='w-6 h-6'></div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-17 sm:order-16">1</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-18 sm:order-17">2</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-19 sm:order-18">3</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-20 sm:order-19">+</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-20 sm:order-19" data-operation="addition">+</div>
       
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-4 sm:order-20">1/x</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-21">&#xb1;</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-4 sm:order-20" data-operation="reciprocal">1/x</div>
+        <div class="operation btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-21" data-operation="plus-minus" id="plus-minus">&#xb1;</div>
         <div class="btn-swoosh sm:w-1/5 w-1/4 border border-gray-200 h-20 sm:h-32 md:h-32 num hover:bg-gray-200 bg-white justify-center flex items-center order-22">0</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-23">.</div>
-        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-last">=</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center order-23" id='decimal'>.</div>
+        <div class="btn-swoosh sm:w-1/5 w-1/4 border bg-gray-100 border-gray-200 hover:bg-gray-200 h-20 sm:h-32 md:h-32 justify-center flex items-center hover:bg-red-500 order-last" id='equals'>=</div>
       </div>
     </div>
+    <script src="js/calculator.js"></script>
+
   </body>
 </html>

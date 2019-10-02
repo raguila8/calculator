@@ -31,7 +31,7 @@
 /*# sourceMappingURL=calculator.css.map */
 
 .order-13 {
-  order: 13
+  order: 13;
 }
 
 .order-14 {
@@ -88,8 +88,25 @@
     height: calc(100vh - 40rem);
   }
 
+  .sm\:order-9 {
+    order: 9;
+  }
+
+  .sm\:order-10 {
+    order: 10;
+  }
+
+  .sm\:order-11 {
+    order: 11;
+  }
+
+  .sm\:order-12 {
+    order: 12;
+  }
+
+
   .sm\:order-13 {
-    order: 13
+    order: 13;
   }
 
   .sm\:order-14 {
