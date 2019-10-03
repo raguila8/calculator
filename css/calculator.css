@@ -2,6 +2,10 @@
   height: calc(100vh - 30rem);
 }
 
+.invalid-input .operation, .invalid-input #decimal {
+  opacity: 0.3;
+}
+
 .btn-swoosh {
   position: relative;
   overflow: hidden; }
@@ -29,6 +33,7 @@
     transform: rotate(70deg) translate(0, -9em); } }
 
 /*# sourceMappingURL=calculator.css.map */
+
 
 .order-13 {
   order: 13;
