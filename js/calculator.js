@@ -399,7 +399,7 @@ var calculator = (function () {
   addHistoryItem = function() {
     let index = history.length;
     var historyItem = document.createElement("DIV");
-    historyItem.className = "history-item flex flex-col p-4 mb-4 hover:bg-gray-400 z-40";
+    historyItem.className = "history-item flex flex-col p-4 mb-4 hover:bg-gray-400 z-40 cursor-default";
     historyItem.setAttribute("data-index", index);
     historyItem.addEventListener('click', function() {
       renderHistoryItem(index);

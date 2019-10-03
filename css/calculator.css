@@ -163,3 +163,9 @@
   }
 }
 
+@media (max-width: 640px) {
+  #clear-history {
+    display: none !important;
+  }
+}
+
